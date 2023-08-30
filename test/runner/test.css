@@ -1,0 +1,73 @@
+
+body {
+    font-family: Arial, serif;
+    font-size: 10pt;
+    margin: 0;
+    padding: 3px;
+}
+
+table {
+    width: 100%;
+    border: 1px solid silver;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+
+th, td {
+    text-align: left;
+    border: 1px solid silver;
+    padding: 3px;
+}
+
+thead {
+    background-color: silver;
+}
+
+.passed {
+    color: green;
+    font-weight: bold;
+}
+
+.failed {
+    color: darkred;
+    font-weight: bold;
+}
+
+td pre, th pre {
+    position: absolute;
+    top: inherit;
+    /*margin-top: 0.8em;*/
+    display: none;
+    background-color: lightyellow;
+    box-shadow: 2px 2px 5px silver;
+    font-family: monospace;
+    font-size: 8pt;
+    font-weight: normal;
+    color: black;
+    padding: 1em;
+}
+
+tbody tr:hover {
+    background-color: lightyellow;
+}
+td:hover pre, th:hover pre {
+    display: block;
+}
+
+pre.left {
+    left:inherit;
+}
+
+pre.right {
+    right: 1em;
+}
+
+th {
+    width: 30%;
+}
+td:nth-child(2) {
+    width: 20%;
+}
+td:nth-child(3) {
+    width: 50%;
+}
