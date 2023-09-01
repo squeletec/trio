@@ -22,20 +22,29 @@ export function suite(definition, reporter = domReporter()) {
 
 }
 
-export function assertThat(actual, expected) {
+export function assertTrue(expression, errorMessage = "Expected evaluate to true, but was false.") {
+    if(!expression) {
+        assertEquals.reporter.assertionFailed(false, true)
+        throw new Error(errorMessage)
+    }
+    assertEquals.reporter.assertionPassed(true, true)
+}
+
+export function assertEquals(actual, expected) {
     if(actual !== expected) {
-        assertThat.reporter.assertionFailed(actual, expected)
+        assertEquals.reporter.assertionFailed(actual, expected)
         throw new Error("Expected: <" + expected + ">, but was <" + actual + ">")
     }
-    assertThat.reporter.assertionPassed(actual, expected)
+    assertEquals.reporter.assertionPassed(actual, expected)
 }
-assertThat.reporter = {
+
+assertEquals.reporter = {
     assertionFailed() {},
     assertionPassed() {}
 }
 
 export function assertState(state, expectedValue) {
-    return assertThat(state.get(), expectedValue)
+    return assertEquals(state.get(), expectedValue)
 }
 
 export function domReporter() {
@@ -69,20 +78,25 @@ export function domReporter() {
             headRow.appendChild(nameCell(definition.name || 'DefaultSuite'))
             headRow.appendChild(startCell())
         },
+
         suitePassed() {
             headRow.appendChild(element('td', 'passed')).setAttribute('class', 'passed')
         },
+
         suiteFailed(errors) {
             headRow.appendChild(element('td', errors.length + ' tests failed')).setAttribute('class', 'failed')
         },
+
         testStart(name, func) {
             currentTest = reportItems.appendChild(document.createElement('tr'))
             currentTest.appendChild(nameCell(name)).appendChild(detail(func)).setAttribute('class', 'left')
             currentTest.appendChild(startCell())
         },
+
         testPassed() {
             currentTest.appendChild(element('td', 'passed')).setAttribute('class', 'passed')
         },
+
         testFailed(error) {
             let result = currentTest.appendChild(element('td', error.message))
             result.setAttribute('class', 'failed')

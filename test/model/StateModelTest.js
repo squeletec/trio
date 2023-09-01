@@ -1,5 +1,5 @@
 import {state} from "../../model/StateModel.js";
-import {suite, assertThat} from "../runner/test-runner.js";
+import {suite, assertEquals} from "../runner/test-runner.js";
 
 suite({
 
@@ -7,28 +7,28 @@ suite({
 
     initialStateShouldBeAvailable() {
         let model = state("A")
-        assertThat(model.get(), "A")
+        assertEquals(model.get(), "A")
     },
 
     initialStateShouldBePassedToObserver() {
         let model = state("B")
         let target = null
         model.observe(value => target = value)
-        assertThat(target, "B")
+        assertEquals(target, "B")
     },
 
     initialStateShouldNotBePassedToObserverOfChanges() {
         let model = state("C")
         let target = null
         model.observeChanges(value => target = value)
-        assertThat(target, null)
+        assertEquals(target, null)
     },
 
     stateShouldChangeOnSettingTheValue() {
         let model = state()
-        assertThat(model.get(), null)
+        assertEquals(model.get(), null)
         model.set("D")
-        assertThat(model.get(), "D")
+        assertEquals(model.get(), "D")
     },
 
     changeShouldBePassedToObserver() {
@@ -36,7 +36,7 @@ suite({
         let target = null
         model.observe(value => target = value)
         model.set("E")
-        assertThat(target, "E")
+        assertEquals(target, "E")
     },
 
     changeShouldBePassedToObserverOfChanges() {
@@ -44,7 +44,7 @@ suite({
         let target = null
         model.observeChanges(value => target = value)
         model.set("F")
-        assertThat(target, "F")
+        assertEquals(target, "F")
     },
 
 })
