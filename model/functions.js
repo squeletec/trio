@@ -10,12 +10,8 @@ import {transform} from "./ObservableTransformer.js";
  * @returns {StateModel|null}
  */
 export function argumentsModel(...modelsAndValues) {
-    let value = new Array(modelsAndValues.length)
+    let value = modelsAndValues.map((v, i) => isObservable(v) ? v.observeChanges(x => {value[i] = x; model.trigger()}).get() : v)
     let model = state(value)
-    modelsAndValues.forEach((v, i) => value[i] = isObservable(v) ? v.observe(x => {
-        value[i] = x;
-        model.trigger()
-    }, false).get() : v)
     return model
 }
 
