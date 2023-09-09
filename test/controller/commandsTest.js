@@ -1,6 +1,6 @@
 import {suite, assertEquals} from "../runner/test-runner.js";
-import {state} from "../../model/StateModel.js";
-import {increment} from "
+import {state} from "../../model/StateModel.js"
+import {increment} from "../../controller/commands.js"
 
 suite({
 
