@@ -107,3 +107,17 @@ export function domReporter() {
     }
 
 }
+
+window.onerror = function (event, source, lineno, colno, error) {
+    let errorPane = document.body.appendChild(document.createElement('div'))
+    errorPane.setAttribute('class', 'unexpected-error')
+    errorPane.appendChild(renderError(error))
+}
+
+function renderError(e) {
+    let pane = document.createElement('div')
+    pane.appendChild(document.createElement('h4')).appendChild(document.createTextNode(e.message))
+    pane.appendChild(document.createElement('pre')).appendChild(document.createTextNode(e.stack))
+    if(e.cause) pane.appendChild(renderError(e.cause))
+    return pane
+}

@@ -27,8 +27,6 @@ export class StateModel extends Model {
     }
 
     set(newValue) {
-        if(this._value === newValue)
-            return this
         this._value = newValue
         return this.trigger()
     }

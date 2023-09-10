@@ -4,7 +4,7 @@ import {increment} from "../../controller/commands.js"
 
 suite({
 
-    name: "Controller tests"
+    name: "Controller tests",
 
     incrementCommand() {
         let counter = state(0)
@@ -13,4 +13,5 @@ suite({
         command()
         assertEquals(counter.get(), 1)
     }
+
 })

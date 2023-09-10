@@ -8,6 +8,7 @@ import {state} from "./StateModel.js"
 export class UpdatingModel extends Model {
 
     constructor(delegate) {
+        super()
         this._delegate = delegate
     }
 
