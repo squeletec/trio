@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="module" defer>
+    import {body, h1, p, pre, code} from "../../trio.js"
+
+    body(
+            h1('Basic idea of Trio MVC'),
+            p(
+                    'See very simple MVC chain in the following example. For value to be manipulated, declare a model implementation StateModel using simple method: ',
+                    code('state()')
+            ),
+            p(
+                    'Such model can be directly used as content of any element. See the ', code('q(model)'), ' element.'
+            ),
+            p(
+                    'Manipulation of the model is achieved by commands. Very simple one command is setting a model to fixed value. See all the ',
+                    code('a()'),
+                    ' elements added.'
+            ),
+            pre(
+                    document.getElementById('example').innerText
+            )
+    )
+
+  </script>
+  <script type="module" id="example">
+    import {state, body, div, a, span, q, set} from "../../trio.js";
+
+    let model = state("Initial value")
+
+    body(
+            div(
+                    a("Set model value to 'Value A'").onClick(set(model, "Value A")),
+                    a("Set model value to 'Value B'").onClick(set(model, "Value B")),
+                    a("Set model value to 'Value C'").onClick(set(model, "Value C"))
+            ),
+            div(
+                    span("Model value: "),
+                    q(model)
+            )
+    )
+  </script>
+</head>
+<body></body>
+</html>

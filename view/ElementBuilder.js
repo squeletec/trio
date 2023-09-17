@@ -14,7 +14,7 @@ export class ElementBuilder extends Content {
     /**
      * Append children at the end of current content of the element.
      * @param args Any number of children to add.
-     * @returns {ElementBuilder}
+     * @returns this
      */
     add(...args) {
         for(let i = 0; i < args.length; i++)
@@ -91,9 +91,9 @@ export class ElementBuilder extends Content {
 }
 
 
-export function elementBuilder(node) {
+export function elementBuilder(node, ...content) {
     if(node instanceof Node)
-        return new ElementBuilder(node)
+        return new ElementBuilder(node).add(...content)
     throw new ReferenceError("Provided value must be instance of Node. Got: " + node);
 }
 
