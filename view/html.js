@@ -1,4 +1,5 @@
 import {builder} from "./HtmlBuilder.js";
+import {text} from "./Content.js";
 
 /**
  * Builder created on top of the existing document body element.
