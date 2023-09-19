@@ -1,25 +1,36 @@
-
 export function suite(definition, reporter = domReporter()) {
 
     let errors = []
     reporter.suiteStart(definition)
 
-    for(let property in definition) {
-        if(definition.hasOwnProperty(property) && typeof definition[property] === "function") {
-            reporter.testStart(property, definition[property])
+    Object.entries(definition)
+        .filter(([name, value]) => typeof value === 'function')
+        .flatMap(([name, test]) => useData(name, test))
+        .forEach(([name, test]) => {
+            reporter.testStart(name, test)
             try {
-                definition[property]()
+                test()
                 reporter.testPassed()
             } catch (error) {
                 reporter.testFailed(error)
                 errors.push(error)
             }
-        }
-    }
+    })
 
     if(errors.length > 0) reporter.suiteFailed(errors)
     else reporter.suitePassed()
 
+}
+
+function useData(name, test) {
+    if(test.data) {
+        return (Array.isArray(test.data) ? test.data : test.data()).map((args, i) => [name + '.' + i, () => test(...args)])
+    }
+    return [[name, test]]
+}
+
+export function withData(test, data) {
+    test.data = data
 }
 
 export function assertTrue(expression, errorMessage = "Expected evaluate to true, but was false.") {
