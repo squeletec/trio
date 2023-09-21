@@ -1,5 +1,4 @@
 import {Model} from "./Model.js";
-import {isObservable} from "./Observable.js";
 import {state} from "./StateModel.js";
 
 export class PropertyModel extends Model {
@@ -36,12 +35,12 @@ export class PropertyModel extends Model {
 }
 
 
-let stateProxyHandler = {
+export let stateProxyHandler = {
     get(target, name) {
         return (target[name] === undefined) ? target[name] = stateProxy(new PropertyModel(target, name)) : target[name]
     }
 }
 
-export function stateProxy(stateOrValue = null) {
-    return new Proxy(isObservable(stateOrValue) ? stateOrValue : state(stateOrValue), stateProxyHandler)
+export function stateProxy(stateOrValue = null, proxyHandler = stateProxyHandler) {
+    return new Proxy(state(stateOrValue), proxyHandler)
 }
