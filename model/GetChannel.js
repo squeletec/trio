@@ -18,6 +18,6 @@ class GetChannel extends Channel {
 
 }
 
-export function getChannel(uri, input, result = fromJson()) {
+export function getChannel(uri, input = null, result = fromJson()) {
     return new GetChannel(uri, input, result)
 }
