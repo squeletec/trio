@@ -74,9 +74,9 @@ export class Channel extends Model {
 
 
 export function fromJson(model = state()) {
-    return model.apply(request => request === null ? null : JSON.parse(request.responseText))
+    return transform(model, request => request === null ? null : JSON.parse(request.responseText))
 }
 
 export function fromText(model = state()) {
-    return model.apply(request => request === null ? null : request.responseText)
+    return transform(model, request => request === null ? null : request.responseText)
 }
