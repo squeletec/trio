@@ -1,6 +1,6 @@
 import {state} from "../../model/StateModel.js";
 import {suite, assertEquals} from "../runner/test-runner.js";
-import {PropertyModel, stateProxy, stateProxyHandler2} from "../../model/PropertyModel.js";
+import {PropertyModel, stateProxy} from "../../model/PropertyModel.js";
 
 suite({
 
