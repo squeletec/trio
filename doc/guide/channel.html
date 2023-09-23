@@ -10,7 +10,7 @@
     import {page} from "./guide.js";
 
     page(
-        h1('Basic idea of Trio MVC'),
+        h1('Channel'),
         p(
             'See very simple MVC chain in the following example. For value to be manipulated, declare a model implementation StateModel using simple method: ',
             code('state()')
@@ -30,17 +30,13 @@
 
   </script>
   <script type="module" id="example">
-import {state, body, div, a, span, q, set} from "../../trio.js";
+import {body, div, span, q} from "../../trio.js";
+import {getChannel} from "../../model/GetChannel.js";
 
-let model = state("Initial value")
+let model = getChannel("data/simple.json").trigger()
 
 body(
     div(
-        div(
-            a("- Set model value to 'Value A'").onClick(set(model, "Value A")),
-            a("- Set model value to 'Value B'").onClick(set(model, "Value B")),
-            a("- Set model value to 'Value C'").onClick(set(model, "Value C"))
-        ),
         div(
             span("Model value: "),
             q(model)

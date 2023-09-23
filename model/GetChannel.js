@@ -8,7 +8,7 @@ import {Channel, fromJson} from "./Channel.js";
 class GetChannel extends Channel {
 
     constructor(uri, input, output) {
-        super(usingUriTemplate(uri), state(input), output);
+        super(usingUriTemplate(uri), input, output);
     }
 
     trigger() {
@@ -19,5 +19,5 @@ class GetChannel extends Channel {
 }
 
 export function getChannel(uri, input = null, result = fromJson()) {
-    return new GetChannel(uri, input, result)
+    return new GetChannel(uri, state(input), state(result))
 }

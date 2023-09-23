@@ -8,7 +8,7 @@ import {Channel, fromJson} from "./Channel.js";
 class PostChannel extends Channel {
 
     constructor(uri, input, output) {
-        super(usingTemplate(uri), state(input), output);
+        super(usingTemplate(uri), input, output);
     }
 
     trigger() {
@@ -19,5 +19,5 @@ class PostChannel extends Channel {
 }
 
 export function postChannel(uri, input, result = fromJson()) {
-    return new PostChannel(uri, input, result)
+    return new PostChannel(uri, state(input), state(result))
 }

@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, serif;
+    font-size: 9pt;
+}
+div.demo div, div.header div {
+    padding: 1em;
+}
+
+a {
+    padding: 0.4em;
+    color: cadetblue;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+q {
+    font-style: italic;
+    font-size: larger;
+    color: grey;
+}
+
+pre {
+    background-color: #fafaf7;
+    border: 1px dashed #e1e1d2;
+    width: fit-content;
+    padding: 1em;
+    box-shadow: #dedede 3px 3px 3px;
+}
+
+div.demo {
+    border: 1px solid #e1e1d2;
+    box-shadow: #dedede 3px 3px 3px;
+    width: fit-content;
+}
+
+div.header {
+    background-color: #f6f6f6;
+}
+.menu {
+    display: inline-block;
+    margin-right: 1em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.menu:hover {
+    background-color: white;
+}

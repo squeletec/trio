@@ -11,7 +11,7 @@ export class HtmlBuilder extends ElementBuilder {
     }
 
     setClass(...value) {
-        return this.set('class', join(' ', ...(this._class = value)))
+        return this.set('class', join(' ', this._class = value))
     }
 
     addClass(...value) {
@@ -300,6 +300,10 @@ export class HtmlBuilder extends ElementBuilder {
 
     flex(...args) {
         return this.css('flex', ...args)
+    }
+
+    auto() {
+        return this.flex("auto")
     }
 
     flexDirection(...args) {

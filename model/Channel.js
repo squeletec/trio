@@ -2,6 +2,8 @@ import {Model} from "./Model.js";
 import {state} from "./StateModel.js";
 import {properties} from "./functions.js";
 import {transform} from "./ObservableTransformer.js";
+import {TransformedState} from "./TransformedState.js";
+import {stateProxy} from "./PropertyModel.js";
 
 function observeRequest(method, uri, state, result) {
     let request = new XMLHttpRequest()
@@ -73,10 +75,10 @@ export class Channel extends Model {
 }
 
 
-export function fromJson(model = state()) {
-    return transform(model, request => request === null ? null : JSON.parse(request.responseText))
+export function fromJson(initialValue = null) {
+    return stateProxy(new TransformedState(request => request == null ? null : JSON.parse(request.responseText), initialValue))
 }
 
-export function fromText(model = state()) {
-    return transform(model, request => request === null ? null : request.responseText)
+export function fromText(initialValue = null) {
+    return new TransformedState(request => request == null ? null : request.responseText, initialValue)
 }

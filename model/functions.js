@@ -56,7 +56,7 @@ export function usingUriTemplate(template) {
     let fileFunction = usingTemplate(template)
     return function(raw) {
         let value = {}
-        Object.getOwnPropertyNames(raw).forEach(name => value[name] = encodeURIComponent(raw[name]))
+        if(raw != null) Object.getOwnPropertyNames(raw).forEach(name => value[name] = raw[name])
         let params = Object.getOwnPropertyNames(value).filter(n => n && !template.includes('{' + n + '}'))
         let file = fileFunction(value)
         if(params.length > 0) {
@@ -68,7 +68,7 @@ export function usingUriTemplate(template) {
 
 export function properties(map) {
     return function(object) {
-        return Object.fromEntries(Object.entries(object).map(([name, value]) => [name, map(value)]))
+        return object == null ? null : Object.fromEntries(Object.entries(object).map(([name, value]) => [name, map(value)]))
     }
 }
 
