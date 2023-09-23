@@ -1,6 +1,6 @@
 body {
     font-family: Arial, serif;
-    font-size: 9pt;
+    font-size: 11pt;
 }
 div.demo div, div.header div {
     padding: 1em;
@@ -25,12 +25,12 @@ pre {
     border: 1px dashed #e1e1d2;
     width: fit-content;
     padding: 1em;
-    box-shadow: #dedede 3px 3px 3px;
+    box-shadow: #dedede 3pt 3pt 3pt;
 }
 
 div.demo {
     border: 1px solid #e1e1d2;
-    box-shadow: #dedede 3px 3px 3px;
+    box-shadow: #dedede 3pt 3pt 3pt;
     width: fit-content;
 }
 
