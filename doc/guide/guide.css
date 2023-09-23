@@ -26,6 +26,7 @@ pre {
     width: fit-content;
     padding: 1em;
     box-shadow: #dedede 3pt 3pt 3pt;
+    font-size: 12pt;
 }
 
 div.demo {
