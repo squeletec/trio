@@ -25,7 +25,7 @@ pre {
     border: 1px dashed #e1e1d2;
     padding: 1em;
     box-shadow: #dedede 3pt 3pt 3pt;
-    font-size: 12pt;
+    overflow: auto;
 }
 
 div.demo {
