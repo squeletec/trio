@@ -1,9 +1,22 @@
 import {isObservable} from "../model/Observable.js";
 
+/**
+ * Create command which sets a model to fixed value or actual value of another model.
+ *
+ * @param model Model to set.
+ * @param value Value to set the model to.
+ * @returns {{(): *, (): *}}
+ */
 export function set(model, value) {
     return isObservable(value) ? () => model.set(value.get()) : () => model.set(value)
 }
 
+/**
+ * Create command to toggle value of provided model to its negation.
+ *
+ * @param model Model to negate.
+ * @returns {function(): *}
+ */
 export function toggle(model) {
     return () => model.set(!model.get())
 }
@@ -12,6 +25,12 @@ export function when(condition, command) {
     return () => condition.get() && command()
 }
 
+/**
+ * Create command to trigger provided model.
+ * This command is mainly used to trigger call or remote data.
+ * @param model Model to trigger.
+ * @returns {function(): *}
+ */
 export function trigger(model) {
     return () => model.trigger()
 }
