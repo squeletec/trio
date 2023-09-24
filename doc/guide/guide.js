@@ -9,8 +9,9 @@ export function page(...content) {
     let currentPage = pages.indexOf(document.location.pathname.substring(document.location.pathname.lastIndexOf('/')))
     body(
         flexRow(
+            div('☰'),
             div(a('Previous').href()),
-            div(span('☰').setClass('menu'), 'TRIO MVC Guide: Chapter 1').auto().textCenter(),
+            div('TRIO Guide: Chapter 1').auto().textCenter(),
             div(a('Next').href())
         ).setClass('header'),
         ...content
