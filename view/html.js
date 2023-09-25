@@ -509,7 +509,7 @@ export function range(start, model, itemDisplayFunction = item => item, end = te
     let f = dynamicFragment(start, end)
     model.observe(value => {
         f.clear();
-        (Array.isArray(value) ? value : null === value ? [] : [value]).forEach((item, index) => f.add(itemDisplayFunction(item, index)))
+        (Array.isArray(value) ? value : null == value ? [] : [value]).forEach((item, index) => f.add(itemDisplayFunction(item, index)))
     })
     return f
 }
