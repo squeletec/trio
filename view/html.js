@@ -1,5 +1,6 @@
 import {builder} from "./HtmlBuilder.js";
 import {text} from "./Content.js";
+import {dynamicFragment} from "./DynamicFragmentBuilder.js";
 
 /**
  * Builder created on top of the existing document body element.
@@ -534,4 +535,11 @@ export function range(start, model, itemDisplayFunction = item => item, end = te
  */
 export function each(model, itemDisplayFunction = (item, index) => item, end = text()) {
     return range(text(), model, itemDisplayFunction, end)
+}
+
+
+export function produce(model, itemDisplayFunction = item => item, end = text()) {
+    let f = dynamicFragment(text(), end)
+    model.observe(item => f.add(item == null ? null : itemDisplayFunction(item)))
+    return f
 }
