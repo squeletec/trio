@@ -7,12 +7,19 @@ export function suite(definition, reporter = domReporter()) {
         .filter(([name, value]) => typeof value === 'function')
         .flatMap(([name, test]) => useData(name, test))
         .forEach(([name, test]) => {
-            reporter.testStart(name, test)
+            let testState = reporter.testStart(name, test)
             try {
-                test()
-                reporter.testPassed()
+                let result = test()
+                if(result instanceof Promise)
+                    result.then(() => {
+                        reporter.testPassed(testState)
+                    }).catch(reason => {
+                        reporter.testFailed(testState, reason)
+                        errors.push(reason)
+                    })
+                else reporter.testPassed(testState)
             } catch (error) {
-                reporter.testFailed(error)
+                reporter.testFailed(testState, error)
                 errors.push(error)
             }
     })
@@ -63,7 +70,7 @@ export function domReporter() {
     let reportHead = reportTable.appendChild(document.createElement('thead'))
     let reportItems = reportTable.appendChild(document.createElement('tbody'))
     let headRow = null
-    let currentTest = null
+    //let currentTest = null
 
     function element(type, content) {
         let cell = document.createElement(type)
@@ -99,16 +106,17 @@ export function domReporter() {
         },
 
         testStart(name, func) {
-            currentTest = reportItems.appendChild(document.createElement('tr'))
+            let currentTest = reportItems.appendChild(document.createElement('tr'))
             currentTest.appendChild(nameCell(name)).appendChild(detail(func)).setAttribute('class', 'left')
             currentTest.appendChild(startCell())
+            return currentTest
         },
 
-        testPassed() {
+        testPassed(currentTest) {
             currentTest.appendChild(element('td', 'passed')).setAttribute('class', 'passed')
         },
 
-        testFailed(error) {
+        testFailed(currentTest, error) {
             let result = currentTest.appendChild(element('td', error.message))
             result.setAttribute('class', 'failed')
             result.appendChild(detail(error.stack)).setAttribute('class', 'right')
@@ -131,4 +139,15 @@ function renderError(e) {
     pane.appendChild(document.createElement('pre')).appendChild(document.createTextNode(e.stack))
     if(e.cause) pane.appendChild(renderError(e.cause))
     return pane
+}
+
+export function untilLoaded(channel) {
+    let promise = new Promise((resolve, reject) => {
+        channel.observeChanges(v => resolve(v))
+        channel.stateModel.observeChanges(v => {
+            if(v.request) reject(new Error(v.request.statusText))
+        })
+    })
+    channel.trigger()
+    return promise
 }

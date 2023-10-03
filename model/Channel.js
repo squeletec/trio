@@ -25,7 +25,8 @@ function observeRequest(method, uri, state, result) {
     })
     request.onerror = () => state.set({
         state: XMLHttpRequest.DONE,
-        loading: false
+        loading: false,
+        request: request
     })
     request.open(method, uri.get())
     return request
@@ -45,7 +46,7 @@ export class Channel extends Model {
     }
 
     request(method) {
-        return  observeRequest(method, this.uri, this.stateModel, this.output)
+        return observeRequest(method, this.uri, this.stateModel, this.output)
     }
 
     setStateModel(stateModel) {
@@ -64,6 +65,11 @@ export class Channel extends Model {
 
     observe(observer) {
         this.output.observe(observer);
+        return this
+    }
+
+    observeChanges(observer) {
+        this.output.observeChanges(observer);
         return this
     }
 
