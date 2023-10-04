@@ -31,12 +31,14 @@ pre {
     border-radius: 5px;
 }
 
-pre:before {
+pre:before, div.demo:before {
     content: attr(name);
     background-color: #eaeae7;
     display: block;
     margin: -1em;
     padding: 1em;
+    padding-bottom: 0.6em;
+    margin-bottom: 1em;
 }
 
 div.demo {
