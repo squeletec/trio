@@ -9,6 +9,13 @@ suite({
         let link = getChannel("model/data/input.json")
         await untilLoaded(link)
         assertEquals(link.get().a, "x")
+    },
+
+    async testGetTriggerOnUriChange() {
+        let link = getChannel("model/data/{name}.json", {name: "a"})
+        link.input.set({name: "b"})
+        await untilLoaded(link)
+        assertEquals(link.get().value, "b")
     }
 
 })
