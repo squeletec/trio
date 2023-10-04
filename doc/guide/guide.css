@@ -33,7 +33,10 @@ pre {
 
 pre:before {
     content: attr(name);
-    background-color: silver;
+    background-color: #eaeae7;
+    display: block;
+    margin: -1em;
+    padding: 1em;
 }
 
 div.demo {
