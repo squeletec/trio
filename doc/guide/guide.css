@@ -28,6 +28,12 @@ pre {
     width: 100%;
     overflow-x: auto;
     box-sizing: border-box;
+    border-radius: 5px;
+}
+
+pre:before {
+    content: attr(name);
+    background-color: silver;
 }
 
 div.demo {
