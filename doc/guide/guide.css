@@ -31,11 +31,14 @@ pre {
     border-radius: 5px;
 }
 
+pre:before {
+    margin: -1em;
+}
+
 pre:before, div.demo:before {
     content: attr(name);
     background-color: #eaeae7;
     display: block;
-    margin: -1em;
     padding: 1em;
     padding-bottom: 0.6em;
     margin-bottom: 1em;
@@ -44,6 +47,7 @@ pre:before, div.demo:before {
 div.demo {
     border: 1px solid #e1e1d2;
     box-shadow: #dedede 3pt 3pt 3pt;
+    border-radius: 5px;
 }
 
 div.header {
