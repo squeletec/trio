@@ -1,5 +1,6 @@
 import {isObservable} from "../model/Observable.js";
 import {postChannel} from "../model/PostChannel.js";
+import {state} from "../model/StateModel.js";
 
 /**
  * Create command which sets a model to fixed value or actual value of another model.
