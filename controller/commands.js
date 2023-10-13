@@ -1,4 +1,5 @@
 import {isObservable} from "../model/Observable.js";
+import {postCannel} from "../model/PostChannel.js";
 
 /**
  * Create command which sets a model to fixed value or actual value of another model.
@@ -61,4 +62,8 @@ export function show(dialog) {
 
 export function close(dialog) {
     return () => dialog.get().close()
+}
+
+export function save(model, response = state()) {
+    return event => postChannel(event.targetElement.action, model, response).trigger()
 }
