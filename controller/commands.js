@@ -46,7 +46,7 @@ export function decrement(model, by = 1) {
 }
 
 export function invert(model) {
-    return model.set(-model.get())
+    return () => model.set(-model.get())
 }
 
 export function remove(content) {
@@ -61,10 +61,19 @@ export function show(dialog) {
     return () => dialog.get().showModal()
 }
 
+function dialogOf(element) {
+    for(; element; element = element.parentNode)
+        if(element instanceof Dialog)
+            return element
+    throw new Error('x')
+}
+
 export function close(dialog) {
-    return () => dialog.get().close()
+    if(dialog)
+        return () => dialog.get().close()
+    return event => dialogOf(event.target).close()
 }
 
 export function save(model, response = state()) {
-    return event => postChannel(event.targetElement.action, model, response).trigger()
+    return event => postChannel(event.target.action, model, response).trigger()
 }
