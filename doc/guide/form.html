@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale: 1.0">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="guide.css" />
+  <script type="module" defer>
+    import {h1, p, pre, code} from "../../trio.js"
+    import {page} from "./guide.js";
+
+    page(
+        h1('Basic idea of Trio MVC'),
+        p(
+            'See very simple MVC chain in the following example. For value to be manipulated, declare a model implementation StateModel using simple method: ',
+            code('state()')
+        ),
+        p(
+            'Such model can be directly used as content of any element. See the ', code('q(model)'), ' element.'
+        ),
+        p(
+            'Manipulation of the model is achieved by commands. Very simple one command is setting a model to fixed value. See all the ',
+            code('a()'),
+            ' elements added.'
+        ),
+        pre(
+            document.getElementById('example').innerText.trim()
+        )
+    )
+
+  </script>
+  <script type="module" id="example">
+import {stateProxy, body, div, form, inputText, textarea, save} from "../../trio.js";
+
+let model = stateProxy({name: "John", description: "Long description"})
+
+body(
+    div(
+        form(
+                inputText().edit(model.name),
+                textarea().edit(model.description)
+        ).action("a/b").onSubmit(save(model))
+    ).setClass("demo")
+)</script>
+</head>
+<body></body>
+</html>
