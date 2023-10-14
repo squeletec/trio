@@ -18,7 +18,7 @@ export class ElementBuilder extends Content {
      */
     add(...args) {
         for(let i = 0; i < args.length; i++)
-            if(args[i] !== null && args[i] !== undefined)
+            if(args[i] != null)
                 this.get().appendChild(node(args[i]))
         return this
     }
@@ -47,7 +47,7 @@ export class ElementBuilder extends Content {
      */
     set(name, ...args) {
         return this._manipulate(value => {
-            if(value === null) this.get().removeAttribute(name)
+            if(value == null) this.get().removeAttribute(name)
             else this.get().setAttribute(name, value)
         }, args)
     }
@@ -58,7 +58,7 @@ export class ElementBuilder extends Content {
      */
     css(property, ...args) {
         return this._manipulate(value => {
-            if(value === null) this.get().style.removeProperty(property)
+            if(value == null) this.get().style.removeProperty(property)
             else this.get().style.setProperty(property, value)
         }, args)
     }
@@ -66,7 +66,7 @@ export class ElementBuilder extends Content {
 
     setProperty(name, ...args) {
         return this._manipulate(value => {
-            if(value === null) this.get()[name] = null
+            if(value == null) this.get()[name] = null
             else this.get()[name] = value
         }, args)
     }

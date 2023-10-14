@@ -1,18 +1,20 @@
-import {a, body, div, flexRow, span} from "../../view/html.js";
+import {a, body, div, flexRow} from "../../view/html.js";
 
 let pages = [
     "index.html",
+    "form.html",
     "channel.html"
 ]
 
 export function page(...content) {
-    let currentPage = pages.indexOf(document.location.pathname.substring(document.location.pathname.lastIndexOf('/')))
+    let currentPage = document.location.pathname.replace(/.*\//, "").replace(/\?.*/, "")
+    let index = pages.indexOf(currentPage)
     body(
         flexRow(
             div('☰').setClass('menu'),
-            div(a('Previous').href()),
+            div(a('Previous').href(pages[index - 1])),
             div('TRIO Guide: Chapter 1').auto().textCenter(),
-            div(a('Next').href())
+            div(a('Next').href(pages[index + 1]))
         ).setClass('header'),
         ...content
     )

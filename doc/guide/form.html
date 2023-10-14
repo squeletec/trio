@@ -30,16 +30,41 @@
 
   </script>
   <script type="module" id="example">
-import {stateProxy, body, div, form, inputText, textarea, save} from "../../trio.js";
+import {stateProxy, body, div, form, inputText, textarea, save, submit, label, br} from "../../trio.js";
+import {checkbox, option, radio, select} from "../../view/html.js";
 
-let model = stateProxy({name: "John", description: "Long description"})
+let model = stateProxy({
+  name: "John",
+  description: "Long description",
+  gender: "Male",
+  married: false,
+  marked: true,
+  country: "Czech Republic"
+})
 
 body(
     div(
         form(
-                inputText().edit(model.name),
-                textarea().edit(model.description)
-        ).action("a/b").onSubmit(save(model))
+                label("Name: "), inputText().edit(model.name), ": ", model.name, br(),
+                "Gender: ",
+                label("Male "), radio().value("Male").edit(model.gender),
+                label("Female"), radio().value("Female").edit(model.gender),
+                model.gender,
+                br(),
+                label("Married: "), checkbox().edit(model.married), model.married, br(),
+                label("Marked: "), checkbox().edit(model.marked), model.marked, br(),
+                select(
+                        option("Germany"),
+                        option("Czech Republic"),
+                        option("France"),
+                        option("Poland")
+                ).edit(model.country), model.country, br(),
+                label("Description: "), br(),
+                textarea().edit(model.description), br(),
+                model.description, br(),
+                submit('Save')
+        ).action("a/b").onSubmit(save(model)),
+            div()
     ).setClass("demo")
 )</script>
 </head>

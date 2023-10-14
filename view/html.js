@@ -29,6 +29,7 @@ export function byId(id) {
 /**
  * Create new DOM Element with provided name and wrap it with a builder.
  * @param name Element name.
+ * @param content Elements to be appended to the element.
  * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function element(name, ...content) {
@@ -209,7 +210,7 @@ export function time(...content) {
 
 /**
  * Create new DOM Element 'form' and wrap it with a builder.
- * @param method Method of form submission (GET|POST). Default value is POST
+ * @param content Elements to be appended to the element.
  * @returns {ElementBuilder} New XBuilder instance.
  */
 export function form(...content) {
@@ -252,16 +253,16 @@ export function reset(value) {
     return input('reset').value(value)
 }
 
-export function select(name, ...content) {
-    return element('select', ...content).name(name)
+export function select(...content) {
+    return element('select', ...content)
 }
 
-export function option(value) {
-    return element('option').value(value)
+export function option(...content) {
+    return element('option', ...content)
 }
 
-export function label(forInput) {
-    return element('label').set('for', forInput)
+export function label(...content) {
+    return element('label', ...content)
 }
 
 export function fieldset(...content) {

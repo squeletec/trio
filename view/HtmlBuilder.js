@@ -86,10 +86,6 @@ export class HtmlBuilder extends ElementBuilder {
         return this.set('autocomplete', ...value)
     }
 
-    checked(value) {
-        return this.set('checked', value)
-    }
-
     disabled(value) {
         return this.set('disabled', isObservable(value) ? value.map(to(true)) : value)
     }
@@ -338,6 +334,10 @@ export class HtmlBuilder extends ElementBuilder {
         return this.setProperty('value', ...args)
     }
 
+    checked(value) {
+        return this.setProperty('checked', value)
+    }
+
     onClick(handler, bubble) {
         return this.on('click', handler, bubble)
     }
@@ -417,7 +417,12 @@ export class HtmlBuilder extends ElementBuilder {
      Special binding
      */
     edit(model) {
-        return this.name(model.getName()).value(model).onChange(() => model.set(this.get().value))
+        this.name(model.getName())
+        if(this.get().type === "checkbox")
+            return this.checked(model).onChange(() => model.set(this.get().checked))
+        if(this.get().type === "radio")
+            return this.checked(model.get() === this.get().value).onChange(() => this.get().checked && model.set(this.get().value))
+        return this.value(model).onChange(() => model.set(this.get().value))
     }
 
     apply(f, ...args) {
