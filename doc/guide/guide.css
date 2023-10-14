@@ -8,9 +8,12 @@ div.demo div, div.header div {
 
 a {
     padding: 0.4em;
+    color: silver;
+}
+a[href] {
     color: cadetblue;
 }
-a:hover {
+a[href]:hover {
     text-decoration: underline;
 }
 

@@ -13,7 +13,7 @@ export function page(...content) {
         flexRow(
             div('☰').setClass('menu'),
             div(a('Previous').href(pages[index - 1])),
-            div('TRIO Guide: Chapter 1').auto().textCenter(),
+            div('TRIO Guide: Chapter ', index + 1).auto().textCenter(),
             div(a('Next').href(pages[index + 1]))
         ).setClass('header'),
         ...content
