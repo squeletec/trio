@@ -416,8 +416,8 @@ export class HtmlBuilder extends ElementBuilder {
     /*
      Special binding
      */
-    model(model) {
-        return this.value(model).onChange(() => model.set(this.get().value))
+    edit(model) {
+        return this.name(model.getName()).value(model).onChange(() => model.set(this.get().value))
     }
 
     apply(f, ...args) {
