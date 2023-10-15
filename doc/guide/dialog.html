@@ -22,17 +22,7 @@
 
   </script>
   <script type="module" id="example">
-import {stateProxy, body, div, dialog, a, close, show} from "../../trio.js";
-
-let model = stateProxy({
-  name: "John",
-  description: "Long description",
-  gender: "Male",
-  married: false,
-  marked: true,
-  country: "Czech Republic"
-})
-
+import {body, div, dialog, a, close, show} from "../../trio.js";
 
 body(
     div(
@@ -40,9 +30,7 @@ body(
     ).setClass("demo"),
     dialog(
         a('[X]').float('right').onClick(close()).margin('-1em'),
-        div(
-                'Dialog content'
-        )
+        div('Dialog content')
     ).id('xd')
 )</script>
 </head>
