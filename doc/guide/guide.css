@@ -2,8 +2,12 @@ body {
     font-family: Arial, serif;
     font-size: 11pt;
 }
-div.demo div, div.header div {
+div.demo div {
     padding: 1em;
+}
+
+div.header {
+    padding: 0.3em;
 }
 
 a {
