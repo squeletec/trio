@@ -10,7 +10,7 @@
     import {page} from "./guide.js";
 
     page(
-        h1('Simple editor of model properties'),
+        h1('Dialog demo'),
         p(
             'See very simple form, where input elements are simply bound to model attributes via the method ',
             code('edit(model)')
@@ -33,17 +33,17 @@ let model = stateProxy({
   country: "Czech Republic"
 })
 
-let d = dialog(
-        a('[X]').float('right').onClick(close()),
+
+body(
+    div(
+            a("Show dialog").onClick(show('xd'))
+    ).setClass("demo"),
+    dialog(
+        a('[X]').float('right').onClick(close()).margin('-1em'),
         div(
                 'Dialog content'
         )
-)
-body(
-    div(
-            a("Show dialog").onClick(show(d))
-    ).setClass("demo"),
-    d
+    ).id('xd')
 )</script>
 </head>
 <body></body>
