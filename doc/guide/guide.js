@@ -1,4 +1,4 @@
-import {a, body, div, flexRow} from "../../view/html.js";
+import {a, body, div, span, flexRow} from "../../view/html.js";
 
 let pages = [
     "index.html",
