@@ -63,7 +63,7 @@ export function show(dialog) {
 
 function dialogOf(element) {
     for(; element; element = element.parentNode)
-        if(element instanceof Dialog)
+        if(element.tagName === 'DIALOG')
             return element
     throw new Error('x')
 }

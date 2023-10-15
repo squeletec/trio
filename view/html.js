@@ -461,8 +461,8 @@ export function iframe(...src) {
     return element('iframe').src(src)
 }
 
-export function dialog(title = div('dialog-close').position('absolute').top('inherit').right('inherit').add('x').onClick(event => event.target.parentNode.close())) {
-    return element('dialog').add(title)
+export function dialog(...content) {
+    return element('dialog', ...content)
 }
 
 /**

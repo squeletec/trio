@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale: 1.0">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="guide.css" />
+  <script type="module" defer>
+    import {h1, p, pre, code} from "../../trio.js"
+    import {page} from "./guide.js";
+
+    page(
+        h1('Simple editor of model properties'),
+        p(
+            'See very simple form, where input elements are simply bound to model attributes via the method ',
+            code('edit(model)')
+        ),
+        pre(
+            document.getElementById('example').innerText.trim()
+        )
+    )
+
+  </script>
+  <script type="module" id="example">
+import {stateProxy, body, div, dialog, a, close, show} from "../../trio.js";
+
+let model = stateProxy({
+  name: "John",
+  description: "Long description",
+  gender: "Male",
+  married: false,
+  marked: true,
+  country: "Czech Republic"
+})
+
+let d = dialog(
+        a('[X]').float('right').onClick(close()),
+        div(
+                'Dialog content'
+        )
+)
+body(
+    div(
+            a("Show dialog").onClick(show(d))
+    ).setClass("demo"),
+    d
+)</script>
+</head>
+<body></body>
+</html>

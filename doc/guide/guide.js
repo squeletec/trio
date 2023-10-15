@@ -2,6 +2,7 @@ import {a, body, div, flexRow} from "../../view/html.js";
 
 let pages = [
     "index.html",
+    "dialog.html",
     "form.html",
     "channel.html"
 ]

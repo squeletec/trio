@@ -6,7 +6,7 @@
   <title>Title</title>
   <link rel="stylesheet" type="text/css" href="guide.css" />
   <script type="module" defer>
-    import {h1, p, pre, code} from "../../trio.js"
+    import {h1, p, pre} from "../../trio.js"
     import {page} from "./guide.js";
 
     page(
@@ -21,8 +21,7 @@
 
   </script>
   <script type="module" id="example">
-import {body, div, span, q} from "../../trio.js";
-import {getChannel} from "../../model/GetChannel.js";
+import {body, div, span, q, getChannel} from "../../trio.js";
 
 let model = getChannel("data/simple.json").trigger()
 

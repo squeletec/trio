@@ -30,16 +30,16 @@
 
   </script>
   <script type="module" id="example">
-import {state, body, div, a, span, q, set} from "../../trio.js";
+import {state, body, div, span, q, set, ul, li} from "../../trio.js";
 
 let model = state("Initial value")
 
 body(
     div(
-        div(
-            a("- Set model value to 'Value A'").onClick(set(model, "Value A")),
-            a("- Set model value to 'Value B'").onClick(set(model, "Value B")),
-            a("- Set model value to 'Value C'").onClick(set(model, "Value C"))
+        ul(
+            li("Set model value to 'Value A'").onClick(set(model, "Value A")),
+            li("Set model value to 'Value B'").onClick(set(model, "Value B")),
+            li("Set model value to 'Value C'").onClick(set(model, "Value C"))
         ),
         div(
             span("Model value: "),
