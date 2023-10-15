@@ -58,6 +58,8 @@ export function clear(content) {
 }
 
 export function show(dialog) {
+    if(typeof dialog == 'string')
+        return () => document.getElementById(dialog).showModal()
     return () => dialog.get().showModal()
 }
 
