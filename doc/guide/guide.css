@@ -71,7 +71,7 @@ div.header {
 .menu:hover {
     background-color: white;
 }
-ul {
+a.menu ul {
     background-color: white;
     position: absolute;
     box-shadow: 2px 2px 5px grey;
