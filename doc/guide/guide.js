@@ -16,7 +16,7 @@ export function page(...content) {
         flexRow(
             a('☰').setClass('menu').onClick(toggle(menuDisplayed)).add(ul(
                 ...pages.map(url => li(a(url).href(url)))
-            ).display(menuDisplayed)),
+            )).display(menuDisplayed)),
             a('Previous').href(pages[index - 1]),
             span('TRIO Guide: Chapter ', index + 1).auto().textCenter(),
             a('Next').href(pages[index + 1])
