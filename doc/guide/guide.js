@@ -1,4 +1,4 @@
-import {a, body, div, span, flexRow, state, toggle, ul, li} from "../../view/html.js";
+import {a, body, div, span, flexRow, state, toggle, ul, li} from "../../trio.js";
 
 let pages = [
     "index.html",
