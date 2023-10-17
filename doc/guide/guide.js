@@ -1,4 +1,4 @@
-import {a, body, div, span, flexRow} from "../../view/html.js";
+import {a, body, div, span, flexRow, state, toggle, ul, li} from "../../view/html.js";
 
 let pages = [
     "index.html",
@@ -10,9 +10,13 @@ let pages = [
 export function page(...content) {
     let currentPage = document.location.pathname.replace(/.*\//, "").replace(/\?.*/, "")
     let index = pages.indexOf(currentPage)
+    let menuDisplayed = state(false)
+    
     body(
         flexRow(
-            a('☰').setClass('menu'),
+            a('☰').setClass('menu').onClick(toggle(menuDisplayed)).add(ul(
+                ...pages.map(url => li(a(url).href(url)))
+            ).display(menuDisplayed)),
             a('Previous').href(pages[index - 1]),
             span('TRIO Guide: Chapter ', index + 1).auto().textCenter(),
             a('Next').href(pages[index + 1])
