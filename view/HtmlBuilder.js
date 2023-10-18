@@ -2,6 +2,7 @@ import {concat, join, falseTo, to} from "../model/functions.js";
 import {isObservable} from "../model/Observable.js";
 import {ElementBuilder} from "./ElementBuilder.js";
 import {state} from "../model/StateModel.js";
+import {transform} from "../model/ObservableTransformer.js";
 
 export class HtmlBuilder extends ElementBuilder {
 
@@ -87,7 +88,7 @@ export class HtmlBuilder extends ElementBuilder {
     }
 
     disabled(value) {
-        return this.set('disabled', isObservable(value) ? value.map(to(true)) : value)
+        return this.set('disabled', isObservable(value) ? transform(value, to(true)) : value)
     }
 
     content(...value) {
@@ -95,7 +96,7 @@ export class HtmlBuilder extends ElementBuilder {
     }
 
     display(value) {
-        return this.css('display', (isObservable(value) && (value.get() === true || value.get() === false)) ? value.map(falseTo('none')) : value)
+        return this.css('display', (isObservable(value) && (value.get() === true || value.get() === false)) ? transform(value, falseTo('none')) : value)
     }
 
     textAlign(value) {
