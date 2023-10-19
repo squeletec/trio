@@ -73,20 +73,15 @@ div.header {
     font-family: monospace;
 }
 
-.menu, .trio-ui-menu {
+.trio-ui-menu {
+    margin-right: 1em;
     white-space: nowrap;
 }
 
-.menu:hover {
+.trio-ui-menu:hover {
     background-color: white;
 }
 
-div.popup {
-    background-color: white;
-    box-shadow: 2px 2px 5px grey;
-    padding: 0.5em;
-    width: fit-content;
-}
 .trio-ui-popup {
     background-color: white;
     box-shadow: 2px 2px 5px grey;
