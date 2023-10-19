@@ -15,7 +15,7 @@ export function page(...content) {
 
     body(
         flexRow(
-            menu(a('☰'), div(...pages.map(url => div(a(url).href(url)))).setClass('popup')).setClass('menu'),
+            menu(a('☰'), div(...pages.map(url => div(a(url).href(url))))),
             a('Previous').href(pages[index - 1]),
             span('TRIO Guide: Chapter ', index + 1).auto().textCenter(),
             a('Next').href(pages[index + 1])
