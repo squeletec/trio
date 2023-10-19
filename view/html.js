@@ -20,7 +20,7 @@ export function head(...content) {
 
 /**
  * Builder created on top of the existing element found by id.
- * @returns {ElementBuilder}
+ * @returns {HtmlBuilder}
  */
 export function byId(id) {
     return builder(document.getElementById(id))
@@ -38,7 +38,7 @@ export function element(name, ...content) {
 
 /**
  * Create new DOM Element 'meta' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function meta() {
     return element('meta')
@@ -46,7 +46,7 @@ export function meta() {
 
 /**
  * Create new DOM Element 'base' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function base() {
     return element('base')
@@ -74,7 +74,7 @@ export function a(...content) {
 
 /**
  * Create new DOM Element 'h1' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function h1(...content) {
     return element('h1', ...content)
@@ -82,7 +82,7 @@ export function h1(...content) {
 
 /**
  * Create new DOM Element 'h2' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function h2(...content) {
     return element('h2', ...content)
@@ -90,7 +90,7 @@ export function h2(...content) {
 
 /**
  * Create new DOM Element 'h3' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function h3(...content) {
     return element('h3', ...content)
@@ -98,7 +98,7 @@ export function h3(...content) {
 
 /**
  * Create new DOM Element 'h4' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function h4(...content) {
     return element('h4', ...content)
@@ -106,7 +106,7 @@ export function h4(...content) {
 
 /**
  * Create new DOM Element 'h5' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function h5(...content) {
     return element('h5', ...content)
@@ -114,7 +114,7 @@ export function h5(...content) {
 
 /**
  * Create new DOM Element 'h6' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function h6(...content) {
     return element('h6', ...content)
@@ -122,7 +122,7 @@ export function h6(...content) {
 
 /**
  * Create new DOM Element 'p' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function p(...content) {
     return element('p', ...content)
@@ -130,7 +130,7 @@ export function p(...content) {
 
 /**
  * Create new DOM Element 'pre' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function pre(...content) {
     return element('pre', ...content)
@@ -138,7 +138,7 @@ export function pre(...content) {
 
 /**
  * Create new DOM Element 'code' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function code(...content) {
     return element('code', ...content)
@@ -146,7 +146,7 @@ export function code(...content) {
 
 /**
  * Create new DOM Element 'ul' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function ul(...content) {
     return element('ul', ...content)
@@ -154,7 +154,7 @@ export function ul(...content) {
 
 /**
  * Create new DOM Element 'ol' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function ol(...content) {
     return element('ol', ...content)
@@ -162,7 +162,7 @@ export function ol(...content) {
 
 /**
  * Create new DOM Element 'li' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function li(...content) {
     return element('li', ...content)
@@ -170,7 +170,7 @@ export function li(...content) {
 
 /**
  * Create new DOM Element 'small' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function small(...content) {
     return element('small', ...content)
@@ -178,7 +178,7 @@ export function small(...content) {
 
 /**
  * Create new DOM Element 'strong' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function strong(...content) {
     return element('strong', ...content)
@@ -186,7 +186,7 @@ export function strong(...content) {
 
 /**
  * Create new DOM Element 'em' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function em(...content) {
     return element('em', ...content)
@@ -194,7 +194,7 @@ export function em(...content) {
 
 /**
  * Create new DOM Element 'abbr' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function abbr(...content) {
     return element('abbr', ...content)
@@ -202,7 +202,7 @@ export function abbr(...content) {
 
 /**
  * Create new DOM Element 'time' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function time(...content) {
     return element('time', ...content)
@@ -211,7 +211,7 @@ export function time(...content) {
 /**
  * Create new DOM Element 'form' and wrap it with a builder.
  * @param content Elements to be appended to the element.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function form(...content) {
     return element('form', ...content)
@@ -275,7 +275,7 @@ export function legend(...content) {
 
 /**
  * Create new DOM Element 'dd' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function dd(...content) {
     return element('dd', ...content)
@@ -283,7 +283,7 @@ export function dd(...content) {
 
 /**
  * Create new DOM Element 'dl' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function dl(...content) {
     return element('dl', ...content)
@@ -291,7 +291,7 @@ export function dl(...content) {
 
 /**
  * Create new DOM Element 'dt' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function dt(...content) {
     return element('dt', ...content)
@@ -299,7 +299,7 @@ export function dt(...content) {
 
 /**
  * Create new DOM Element 'dfn' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function dfn(...content) {
     return element('dfn', ...content)
@@ -307,7 +307,7 @@ export function dfn(...content) {
 
 /**
  * Create new DOM Element 'table' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function table(...content) {
     return element('table', ...content)
@@ -315,7 +315,7 @@ export function table(...content) {
 
 /**
  * Create new DOM Element 'tbody' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function tbody(...content) {
     return element('tbody', ...content)
@@ -323,7 +323,7 @@ export function tbody(...content) {
 
 /**
  * Create new DOM Element 'thead' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function thead(...content) {
     return element('thead', ...content)
@@ -331,7 +331,7 @@ export function thead(...content) {
 
 /**
  * Create new DOM Element 'tfoot' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function tfoot(...content) {
     return element('tfoot', ...content)
@@ -339,7 +339,7 @@ export function tfoot(...content) {
 
 /**
  * Create new DOM Element 'tr' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function tr(...content) {
     return element('tr', ...content)
@@ -347,7 +347,7 @@ export function tr(...content) {
 
 /**
  * Create new DOM Element 'td' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function td(...content) {
     return element('td', ...content)
@@ -355,7 +355,7 @@ export function td(...content) {
 
 /**
  * Create new DOM Element 'th' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function th(...content) {
     return element('th', ...content)
@@ -363,7 +363,7 @@ export function th(...content) {
 
 /**
  * Create new DOM Element 'caption' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function caption(...content) {
     return element('caption', ...content)
@@ -379,7 +379,7 @@ export function captionBottom(...content) {
 
 /**
  * Create new DOM Element 'sub' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function sub(...content) {
     return element('sub', ...content)
@@ -387,7 +387,7 @@ export function sub(...content) {
 
 /**
  * Create new DOM Element 'sup' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function sup(...content) {
     return element('sup', ...content)
@@ -395,7 +395,7 @@ export function sup(...content) {
 
 /**
  * Create new DOM Element 'details' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function details(...content) {
     return element('details', ...content)
@@ -403,7 +403,7 @@ export function details(...content) {
 
 /**
  * Create new DOM Element 'summary' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function summary(...content) {
     return element('summary', ...content)
@@ -411,7 +411,7 @@ export function summary(...content) {
 
 /**
  * Create new DOM Element 'del' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function del(...content) {
     return element('del', ...content)
@@ -419,7 +419,7 @@ export function del(...content) {
 
 /**
  * Create new DOM Element 'ins' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function ins(...content) {
     return element('ins', ...content)
@@ -427,7 +427,7 @@ export function ins(...content) {
 
 /**
  * Create new DOM Element 'hr' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function hr() {
     return element('hr')
@@ -435,7 +435,7 @@ export function hr() {
 
 /**
  * Create new DOM Element 'br' and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function br() {
     return element('br')
@@ -467,7 +467,7 @@ export function dialog(...content) {
 
 /**
  * Create new DOM Fragment with provided content and wrap it with a builder.
- * @returns {ElementBuilder} New XBuilder instance.
+ * @returns {HtmlBuilder} New XBuilder instance.
  */
 export function fragment(...args) {
     return builder(document.createDocumentFragment()).add(...args)

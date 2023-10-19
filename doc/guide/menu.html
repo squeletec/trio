@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale: 1.0">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="guide.css" />
+  <script type="module" defer>
+    import {h1, p, pre, code} from "../../trio.js"
+    import {page} from "./guide.js";
+
+    page(
+        h1('Menu demo'),
+        p(
+            'See very simple menu demo',
+            code('edit(model)')
+        ),
+        pre(
+            document.getElementById('example').innerText.trim()
+        )
+    )
+
+  </script>
+  <script type="module" id="example">
+import {body, div, a} from "../../trio.js";
+import {menu, menuPopup, subMenu} from "../../ui/menu.js";
+
+function popup(...content) {
+  return menuPopup(...content).setClass('popup')
+}
+
+body(
+    div(
+            menu(a('☰'), popup(
+                    div('Item'),
+                    subMenu(div('Submenu'), popup(
+                            div('Subitem 1'),
+                            div('Subitem 2')
+                    )),
+                    div('Item 3'),
+                    subMenu(div('Submenu 2'), popup(
+                            div('Submenu 3')
+                    ))
+            )),
+            div().height('200px')
+    ).setClass("demo"),
+)</script>
+</head>
+<body></body>
+</html>

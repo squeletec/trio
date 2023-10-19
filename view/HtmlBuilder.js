@@ -433,7 +433,12 @@ export class HtmlBuilder extends ElementBuilder {
 
 }
 
-
+/**
+ *
+ * @param node
+ * @param content
+ * @returns {HtmlBuilder}
+ */
 export function builder(node, ...content) {
     if (node instanceof Node)
         return new HtmlBuilder(node).add(...content)

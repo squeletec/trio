@@ -25,7 +25,7 @@
         ),
         pre(
             document.getElementById('example').innerText.trim()
-        ).name('Source code')
+        )
     )
 
   </script>
@@ -37,15 +37,15 @@ let model = state("Initial value")
 body(
     div(
         ul(
-            li("Set model value to 'Value A'").onClick(set(model, "Value A")),
-            li("Set model value to 'Value B'").onClick(set(model, "Value B")),
-            li("Set model value to 'Value C'").onClick(set(model, "Value C"))
+            li("Set model to 'Value A'").onClick(set(model, "Value A")),
+            li("Set model to 'Value B'").onClick(set(model, "Value B")),
+            li("Set model to 'Value C'").onClick(set(model, "Value C"))
         ),
         div(
             span("Model value: "),
             q(model)
         )
-    ).setClass("demo").name('Outcome')
+    ).setClass("demo")
 )</script>
 </head>
 <body></body>

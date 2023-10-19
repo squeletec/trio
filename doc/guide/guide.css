@@ -2,22 +2,20 @@ body {
     font-family: Arial, serif;
     font-size: 11pt;
 }
-div.demo div {
-    padding: 1em;
-}
 
 div.header {
-    padding: 0.3em;
-    align-itens: center;
+    padding: 0.5em;
+    align-items: center;
 }
 
 a {
-    padding: 0.4em;
     color: silver;
 }
+
 a[href] {
     color: cadetblue;
 }
+
 a[href]:hover {
     text-decoration: underline;
 }
@@ -40,15 +38,19 @@ pre {
 }
 
 pre:before {
-    margin: -1em;
 }
-
+pre:before {
+    content: 'Source code';
+}
+div.demo:before {
+    content: 'Output';
+}
 pre:before, div.demo:before {
-    content: attr(name);
     background-color: #eaeae7;
     display: block;
     padding: 1em;
     padding-bottom: 0.6em;
+    margin: -1em;
     margin-bottom: 1em;
 }
 
@@ -56,25 +58,39 @@ div.demo {
     border: 1px solid #e1e1d2;
     box-shadow: #dedede 3pt 3pt 3pt;
     border-radius: 5px;
+    padding: 1em;
 }
 
 div.header {
     background-color: #f6f6f6;
 }
+
 .menu {
     display: inline-block;
-    margin-right: 0.5em;
+    margin-right: 1em;
     /* padding: 0.3em; */
     font-weight: bold;
     font-family: monospace;
 }
+
+.menu, .trio-ui-menu {
+    white-space: nowrap;
+}
+
 .menu:hover {
     background-color: white;
 }
-a.menu ul {
+
+div.popup {
     background-color: white;
-    position: absolute;
     box-shadow: 2px 2px 5px grey;
+    padding: 0.5em;
+    width: fit-content;
+}
+.trio-ui-popup {
+    background-color: white;
+    box-shadow: 2px 2px 5px grey;
+    padding: 0.5em;
 }
 /*
 a.menu {
