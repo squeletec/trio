@@ -1,8 +1,9 @@
-import {concat, join, falseTo, to} from "../model/functions.js";
+import {join, to} from "../model/functions.js";
 import {isObservable} from "../model/Observable.js";
 import {ElementBuilder} from "./ElementBuilder.js";
 import {state} from "../model/StateModel.js";
 import {transform} from "../model/ObservableTransformer.js";
+import {set} from "../controller/commands.js";
 
 export class HtmlBuilder extends ElementBuilder {
 
@@ -96,7 +97,7 @@ export class HtmlBuilder extends ElementBuilder {
     }
 
     display(value) {
-        return this.css('display', (isObservable(value) && (value.get() === true || value.get() === false)) ? transform(value, falseTo('none')) : value)
+        return this.css('display', isObservable(value) ? transform(value, v => v === false ? 'none' : v === true ? null : v) : value)
     }
 
     textAlign(value) {
@@ -271,24 +272,24 @@ export class HtmlBuilder extends ElementBuilder {
         return this.css('cursor', value)
     }
 
-    transition(value) {
-        return this.css('transition', value)
+    transition(...value) {
+        return this.css('transition', ...value)
     }
 
-    transform(value) {
-        return this.css('transform', value)
+    transform(...value) {
+        return this.css('transform', ...value)
     }
 
     rotate(value, unit) {
-        return this.transform(concat('rotate(', value, unit, ')'))
+        return this.transform('rotate(', value, unit, ')')
     }
 
-    overflow(value) {
-        return this.css('overflow', value)
+    overflow(...value) {
+        return this.css('overflow', ...value)
     }
 
-    overflowX(value) {
-        return this.css('overflow-x', value)
+    overflowX(...value) {
+        return this.css('overflow-x', ...value)
     }
 
     overflowY(value) {

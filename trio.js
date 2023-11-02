@@ -19,6 +19,7 @@ export * from "./model/PostChannel.js";
 export * from "./view/Content.js";
 export * from "./view/ElementBuilder.js";
 export * from "./view/HtmlBuilder.js";
+export * from "./view/DynamicFragmentBuilder.js";
 export * from "./view/html.js";
 
 /*

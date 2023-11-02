@@ -6,7 +6,9 @@ let pages = [
     "dialog.html",
     "form.html",
     "menu.html",
-    "channel.html"
+    "channel.html",
+    "table.html",
+    "tree.html"
 ]
 
 export function page(...content) {

@@ -24,6 +24,8 @@
   <script type="module" id="example">
 import {body, div, a} from "../../trio.js";
 import {menu, menuPopup, subMenu} from "../../ui/menu.js";
+import {expander} from "../../ui/expander.js";
+import {state} from "../../model/StateModel.js";
 
 function popup(...content) {
   return menuPopup(...content).setClass('popup')
@@ -42,6 +44,7 @@ body(
                             div('Submenu 3')
                     ))
             )),
+            expander(state(false)),
             div().height('200px')
     ).setClass("demo"),
 )</script>
