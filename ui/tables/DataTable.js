@@ -1,4 +1,25 @@
-import {tbody, each, state, a, captionBottom, captionTop, form, inputText, reset, span, submit, set, trigger, when, to, functionModel, negate, timer, stateProxy} from "../../trio.js";
+import {
+    tbody,
+    each,
+    state,
+    a,
+    captionBottom,
+    captionTop,
+    form,
+    inputText,
+    reset,
+    span,
+    submit,
+    set,
+    trigger,
+    when,
+    to,
+    functionModel,
+    negate,
+    timer,
+    stateProxy,
+    transform
+} from "../../trio.js";
 import {AbstractDataTable, row} from "./AbstractDataTable.js";
 
 export class DataTable extends AbstractDataTable {
@@ -49,7 +70,7 @@ export function searchControls(query) {
 export function searchTable(searchCall, page = searchCall.input.page, query = searchCall.input.query, result = searchCall.output) {
     // This line is currently causing duplicate rest call with intermediate state.
     // query.onChange(() => page.set(0), false, false)
-    return dataTable(result.map(v => v.content), result.pageable.offset).add(
+    return dataTable(transform(result, v => v.content), result.pageable.offset).add(
         captionTop().setClass('rap-search').textLeft().nowrap().add(searchControls(query)),
         captionTop().setClass('rap-error').textLeft().nowrap().add(searchCall.error),
         captionBottom().setClass('rap-paging').textLeft().nowrap().add(pageControls(page, result, searchCall.loading))
