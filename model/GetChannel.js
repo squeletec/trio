@@ -1,6 +1,7 @@
 import {state} from "./StateModel.js";
 import {usingUriTemplate} from "./functions.js";
 import {Channel, fromJson} from "./Channel.js";
+import {stateProxy} from "./PropertyModel.js";
 
 /**
  * Get channel.
@@ -19,5 +20,5 @@ class GetChannel extends Channel {
 }
 
 export function getChannel(uri, input = null, result = fromJson()) {
-    return new GetChannel(uri, state(input), state(result))
+    return new GetChannel(uri, stateProxy(input), state(result))
 }

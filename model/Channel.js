@@ -42,7 +42,7 @@ export class Channel extends Model {
         this.input = input
         this.uri = transform(transform(input, properties(encodeURIComponent)), uriMapping)
         this.output = output
-        this.setStateModel(state({state: XMLHttpRequest.UNSENT, loading: false}))
+        this.setStateModel(stateProxy({state: XMLHttpRequest.UNSENT, loading: false}))
     }
 
     request(method) {
