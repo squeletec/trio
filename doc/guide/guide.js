@@ -8,6 +8,7 @@ let pages = [
     "menu.html",
     "channel.html",
     "table.html",
+    "search.html",
     "tree.html"
 ]
 
