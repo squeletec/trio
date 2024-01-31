@@ -27,6 +27,11 @@ export class Content {
         if(this._node.parentNode) this._node.parentNode.insertBefore(node(content), this._node)
     }
 
+    addTo(target) {
+        node(target).appendChild(this.get())
+        return this
+    }
+    
 }
 
 /**
