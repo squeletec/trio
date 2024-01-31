@@ -25,6 +25,7 @@ export class Content {
 
     prepend(content) {
         if(this._node.parentNode) this._node.parentNode.insertBefore(node(content), this._node)
+        return this
     }
 
     addTo(target) {
